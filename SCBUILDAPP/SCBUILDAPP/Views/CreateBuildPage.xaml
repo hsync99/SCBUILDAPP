@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm ="clr-namespace:SCBUILDAPP.ViewModels"
+             xmlns:sfautocomplete ="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+             x:Class="SCBUILDAPP.Views.CreateBuildPage"
+             Title="Create Build"
+             >
+    <ContentPage.BindingContext>
+        <vm:CreateBuildPageViewModel/>
+    </ContentPage.BindingContext>    
+    
+    
+    
+    
+    
+    
+    
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#1e1e1e" >
+        <StackLayout BackgroundColor="Transparent">
+                <Frame>
+                <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Minerals:"/>
+                            <Span TextColor="CornflowerBlue" Text="{Binding Minerals}"/>
+                            <Span Text="     "/>
+                            <Span Text="Gas:"/>
+                            <Span TextColor="LightGreen" Text="{Binding Gas}"/>
+                            <Span Text="     "/>
+                            <Span Text="Limit:"/>
+                            <Span Text="{Binding LimitAvilable}"/>
+                            <Span Text="/"/>
+                            <Span Text="{Binding LImitUsed}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                </Frame>
+                <Entry/>
+
+                <Grid Padding="10,0,0,0" ColumnDefinitions="65,70,60,80">
+                    <Label TextColor="White"  FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Text="Name"/>
+                    <Label  TextColor="White"  FontAttributes="Bold" Grid.Row="0" Grid.Column="1" Text="Mineral"/>
+                    <Label  TextColor="White" FontAttributes="Bold" Grid.Row="0" Grid.Column="2" Text="Gas"/>
+                    <Label  TextColor="White"  FontAttributes="Bold" Grid.Row="0" Grid.Column="3" Text="Limit"/>
+                    <Label  TextColor="White"  FontAttributes="Bold" Grid.Row="0" Grid.Column="4" Text="Time"/>
+
+                </Grid>
+                <CollectionView ItemsSource="{Binding UCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            <StackLayout Padding="5,1,5,5">
+                                <Frame CornerRadius="5" BackgroundColor="Green">
+                                    <Grid ColumnDefinitions="*,*,*,*,*">
+                                        <Label TextColor="Black" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                        <Label TextColor="Black" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" Text="{Binding MineralCost}"/>
+                                        <Label TextColor="Black" FontAttributes="Bold"  Grid.Row="0" Grid.Column="2" Text="{Binding GasCost}"/>
+                                        <Label TextColor="Black" FontAttributes="Bold"  Grid.Row="0" Grid.Column="3" Text="{Binding LimitCost}"/>
+                                        <Label  TextColor="Black" FontAttributes="Bold"  Grid.Row="0" Grid.Column="4" Text="{Binding BuildTime}"/>
+                                        
+                                    </Grid>
+                               
+                                </Frame>
+                                
+                                
+                            </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+                <Label Text="UNITS" FontSize="20" TextColor="Black" FontFamily="Bold"/>
+                <Grid Margin="10,0,10,10" Padding="0" ColumnDefinitions="*" RowDefinitions="*">
+                <Button BackgroundColor="Black" FontSize="10" Text="Marine" Grid.Row="0" Grid.Column="0" Clicked="marineCreate"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Reaper" Grid.Row="0" Grid.Column="1" Clicked="ReaperCreate"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Marauder" Grid.Row="0" Grid.Column="2"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Ghost" Grid.Row="0" Grid.Column="3"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Tank" Grid.Row="1" Grid.Column="0"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Thor" Grid.Row="1" Grid.Column="1"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Helion" Grid.Row="1" Grid.Column="2"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Mine" Grid.Row="1" Grid.Column="3"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Viking" Grid.Row="2" Grid.Column="0"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Medevak" Grid.Row="2" Grid.Column="1"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Raven" Grid.Row="2" Grid.Column="2"/>
+                    <Button BackgroundColor="Black"  FontSize="10" Text="BattleCruiser" Grid.Row="2" Grid.Column="3"/>
+                    
+            </Grid>
+                <Label Text="Buildings" FontSize="20" TextColor="Black" FontFamily="Bold"/>
+                <Grid Margin="10,0,10,10" Padding="0" ColumnDefinitions="*" RowDefinitions="*">
+                    <Button BackgroundColor="Black" FontSize="10" Text="Supply" Grid.Row="0" Grid.Column="0" Clicked="SupplyCreate"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Barracks" Grid.Row="0" Grid.Column="1" Clicked="BarracksCreate"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="Factory" Grid.Row="0" Grid.Column="2"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="CosmoPort" Grid.Row="0" Grid.Column="3"/>
+                    <Button BackgroundColor="Black" FontSize="10" Text="EBay" Grid.Row="1" Grid.Column="0"/>
+                   
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
